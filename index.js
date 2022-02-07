@@ -1,3 +1,4 @@
+"use strict";
 // Работа с concat (Даны два массива: [1, 2, 3] и [4, 5, 6]. Объедините их вместе.)
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
@@ -105,10 +106,13 @@ const arrayObjectMap = [
   { firstName: "Test`ya", lastName: "Testovna", age: 16, gender: "female" },
   { firstName: "Logina", lastName: "Consol`evna", age: 42, gender: "female" },
 ];
-const newArrayObjectMap = arrayObjectMap.map((current) => {
-//   current.telephoneNumber = 123;
-    return current;
+const newArrayObjectMap = arrayObjectMap.map((item) => {
+  const obj = {
+    firstName: item.firstName,
+    lastName: item.lastName,
+    age: item.age,
+    gender: item.gender,
+    telephoneNumber: 123,
+  };
+  return obj;
 });
-newArrayObjectMap.forEach((curr)=>{
-    curr.telephoneNumber = 123;
-})
