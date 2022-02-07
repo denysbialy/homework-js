@@ -6,6 +6,7 @@ function arrConcat(arrA, arrB) {
   return arrA.concat(arrB);
 }
 // console.log(arrConcat(arr1, arr2));
+//----------------------------------------------------------------------------------------
 // Работа с reverse (Дан массив [1, 2, 3]. Сделайте из него массив [3, 2, 1].)
 const reverseArr = [1, 2, 3];
 function funcReverseArray(arr) {
@@ -22,7 +23,7 @@ function arrPushUnshift(arr) {
   return arr;
 }
 // console.log(arrPushUnshift(arr3));
-
+//----------------------------------------------------------------------------------------
 // Работа с shift, pop
 // Дан массив ['js', 'css', 'jq']. Выведите на экран первый элемент и удалите его.
 // Дан массив ['js', 'css', 'jq']. Выведите на экран последний элемент и удалите его .
@@ -35,7 +36,7 @@ function funcArrPopShift(arr) {
   return arr;
 }
 // console.log(funcArrPopShift(arrPopShift));
-
+//----------------------------------------------------------------------------------------
 // Работа с slice
 // Дан массив [1, 2, 3, 4, 5]. С помощью метода slice запишите в новый элементы [1, 2, 3].
 // Дан массив [1, 2, 3, 4, 5]. С помощью метода slice запишите в новый элементы [4, 5].
@@ -46,7 +47,7 @@ function funcArrSlice(arr, num1, num2) {
 }
 // console.log(funcArrSlice(arrSlice, 0, 3));
 // console.log(funcArrSlice(arrSlice, 3));
-
+//----------------------------------------------------------------------------------------
 // Работа с splice
 // Дан массив [1, 2, 3, 4, 5]. С помощью метода splice преобразуйте массив в [1, 4, 5].
 // Дан массив [1, 2, 3, 4, 5]. С помощью метода splice запишите в новый массив элементы [2, 3, 4].
@@ -62,19 +63,19 @@ let newArray3 = arraySplice.splice(1, 0, "a", "b");
 newArray3 = arraySplice.splice(arraySplice.length - 1, 0, "c");
 newArray3 = arraySplice.splice(arraySplice.length, 0, "e");
 // console.log(arraySplice);
-
+//----------------------------------------------------------------------------------------
 // Работа с sort
 //  Дан массив [3, 4, 1, 2, 7]. Отсортируйте его.
 
 const arraySort = [3, 4, 1, 2, 7];
 // console.log(arraySort.sort());
-
+//----------------------------------------------------------------------------------------
 //Работа с forEach
 // Дан массив со следующими объектами внутри:
-// {firstName: ‘Test', lastName: 'Testovich', age: 42, gender: ‘male',},
-// {firstName: ‘User', lastName: 'Userovich', age: 12, gender: ‘male',},
-// {firstName: ‘Test`ya', lastName: 'Testovna', age: 16, gender: ‘female',},
-// {firstName: ‘Logina', lastName: 'Consol`evna', age: 42, gender: ‘female',}
+// {firstName: `Test', lastName: 'Testovich', age: 42, gender: `male',},
+// {firstName: `User', lastName: 'Userovich', age: 12, gender: `male',},
+// {firstName: `Test`ya', lastName: 'Testovna', age: 16, gender: `female',},
+// {firstName: `Logina', lastName: 'Consol`evna', age: 42, gender: `female',}
 // Для каждого элемента выведите сообщение в консоль типа
 // “Пользователь (имя) (фамилия) является (пол) и ему сейчас (возраст) лет”
 
@@ -90,7 +91,7 @@ const arrayObjectForEach = [
 //     `Пользователь ${arr.firstName} ${arr.lastName} является ${arr.gender} и ему сейчас ${arr.age} лет`
 //   );
 // });
-
+//----------------------------------------------------------------------------------------
 // Работа с map
 //Дан массив со следующими объектами внутри:
 // { firstName: "Test", lastName: "Testovich", age: 42, gender: "male" },
@@ -116,3 +117,39 @@ const newArrayObjectMap = arrayObjectMap.map((item) => {
   };
   return obj;
 });
+//----------------------------------------------------------------------------------------
+// Работа с filter
+// Дан массив со следующими объектами внутри:
+// {firstName: `Test’, lastName: ’Testovich’, age: 27, gender: `male’,},
+// {firstName: `User’, lastName: ’Userovich’, age: 12, gender: `male’,},
+// {firstName: `Test`ya’, lastName: ’Testovna’, age: 16, gender: `female’,},
+// {firstName: `Logina’, lastName: ’Consol`evna’, age: 42, gender: `female’,},
+// {firstName: `Undefined’, lastName: ’Undefinovich’, age: 99},
+// {firstName: `Null’, lastName: ’Nullovich’, gender: `male’}
+// Создайте новый массив на основании старого массива, в котором будут только те
+// совершеннолетние пользователи, у которых будет определенный пол.
+
+const arrayFilter = [
+  { firstName: "Test", lastName: "Testovich", age: 27, gender: "male" },
+  { firstName: "User", lastName: "Userovich", age: 12, gender: "male" },
+  { firstName: "Test`ya", lastName: "Testovna", age: 16, gender: "female" },
+  { firstName: "Logina", lastName: "Consol`evna", age: 42, gender: "female" },
+  { firstName: "Undefined", lastName: "Undefinovich", age: 99 },
+  { firstName: "Undefined", lastName: "Undefinovich", age: 18, gender: "male" },
+  { firstName: "Null", lastName: "Nullovich", gender: "male" },
+];
+const newArrayFilter = arrayFilter.filter((elem) => {
+  return elem.age >= 18 && elem.gender === "male";
+});
+// console.log(newArrayFilter)
+//----------------------------------------------------------------------------------------
+
+//Работа с flat
+// Дан следующий массив
+// [1,2,3, [10,20,30, [100,200,300, [1000, 2000, 3000]]]].
+// Создайте новый массив на основании старого массива,
+//в котором не будет вложенных массивов.
+
+const arrayFlat = [1, 2, 3, [10, 20, 30, [100, 200, 300, [1000, 2000, 3000]]]];
+console.log(arrayFlat.flat(3));
+//----------------------------------------------------------------------------------------
