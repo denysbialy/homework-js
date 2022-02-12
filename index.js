@@ -8,22 +8,27 @@ function MyArray(arr) {
     return this.length;
   };
 
-  // this.pop = function () {
-  //   if (this.length !== 0) {
-  //     this.length--;
-  //   }
-  //   let deleteValue = this[this.length];
-  //   delete this[this.length];
-  //   return deleteValue;
-  // };
-  // this.arr = arr;
-
-  this.forEach1 = function (callback) {
-    // debugger;
-    for (let i = 0; i < this.length; i++) {
-      callback(this[i], i, this)
+  this.pop = function () {
+    if (this.length !== 0) {
+      this.length--;
     }
-    // return callback;
+    let deleteValue = this[this.length];
+    delete this[this.length];
+    return deleteValue;
+  };
+
+  this.forEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
+  };
+
+  this.map = function (callback) {
+    let newMap = [];
+    for (let i = 0; i < this.length; i++) {
+      newMap[i] = callback(this[i], i, this);
+    }
+    return newMap;
   };
 }
 
@@ -37,16 +42,16 @@ function MyArray(arr) {
 let array = [1, 2, 3, 4, 5];
 const newMyArr = new MyArray();
 
-for(let i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
   newMyArr.push(i);
 }
 
+// function func(...numbers) {
+//   let result = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     result += numbers[i];
+//   }
+//   return result;
+// }
 
-
-function func(...numbers) {
-  let result = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    result += numbers[i];
-  }
-  return result;
-}
+// const sum = (...numbers) => numbers.reduce((summa, current) => summa + current);
