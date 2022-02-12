@@ -30,6 +30,16 @@ function MyArray(arr) {
     }
     return newMap;
   };
+
+  this.unshift = function (value) {
+    // debugger
+    for (let i = this.length; i > 0; --i) {
+      this[i] = this[i - 1];
+    }
+    this[0] = value;
+    this.length++;
+    return this.length;
+  };
 }
 
 // const array1 = ['a', 'b', 'c'];
