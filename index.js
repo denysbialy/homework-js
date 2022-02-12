@@ -33,14 +33,14 @@ function MyArray(arr) {
 
   this.unshift = function (value) {
     // debugger
-    for (let i = this.length; i > 0; --i) {
+    for (let i = this.length; i > 0; i--) {
       this[i] = this[i - 1];
     }
     this[0] = value;
     this.length++;
     return this.length;
   };
-
+  
   this.shift = function () {
     for (let i = 0; i < this.length; i++) {
       this[i] = this[i + 1];
@@ -49,7 +49,18 @@ function MyArray(arr) {
     this.length--;
     return this.length;
   };
-}
+
+  this.reverse = function () {
+    let newArr = [];
+    for (let i = this.length - 1, y = 0; i >= 0; i--, y++) {
+      newArr[y] = this[i];
+    }
+    for (let i = 0; i < newArr.length; i++) {
+      this[i] = newArr[i];
+    }
+    return this;
+  };
+} 
 
 // const array1 = ['a', 'b', 'c'];
 
