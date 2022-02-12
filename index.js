@@ -48,7 +48,6 @@ function MyArray(arr) {
     delete this[this.length - 1];
     this.length--;
     return this.length;
-    
   };
 }
 
