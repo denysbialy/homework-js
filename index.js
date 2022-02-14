@@ -1,7 +1,7 @@
 function MyArray(arr) {
   this.length = 0;
 
-  this.push = function (value) {
+  this.push = function (...value) {
     this[this.length] = value;
 
     this.length++;
@@ -24,7 +24,7 @@ function MyArray(arr) {
   };
 
   this.map = function (callback) {
-    let newMap = [];
+    let newMap = new MyArray();
     for (let i = 0; i < this.length; i++) {
       newMap[i] = callback(this[i], i, this);
     }
