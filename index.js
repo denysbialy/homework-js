@@ -25,7 +25,7 @@ class MyArray {
   }
 
   map(callback) {
-    let newMap = new MyArray();
+    let newMap = this;
     for (let i = 0; i < this.length; i++) {
       newMap[i] = callback(this[i], i, this);
     }
@@ -52,31 +52,45 @@ class MyArray {
   }
 
   reverse() {
-    // debugger
-    let newArr = new MyArray();
-    for (let i = this.length - 1, y = 0; i >= 0; i--, y++) {
-      newArr[y] = this[i];
+    let temp = {};
+    let temp2 = {};
+
+    for (let i = 0; i < this.length; i++) {
+      temp[i] = this[i];
+      
     }
-    for (let i = 0; i < newArr.length; i++) {
-      this[i] = newArr[i];
+    for (let j = this.length-1, k=0; j >= 0; j--, k++) {
+      temp[j] = this[k];
     }
-    return newArr;
+    return this;
   }
 
-  concat(value) {
-    let newArray = [];
-    for (let i = 0; i < this.length + value.length; i++) {
+  // reverse() {
+  //   for (let i = 0; i < this.length; i++) {
+  //     let temp = this[i];
+
+  //     this[i] = this[this.length-1];
+  //     this[this.length - 1] = temp;
+  //   }
+  //   return this;
+  // }
+
+  concat(...value) {
+    let newArray = this;
+
+    for (let i = 0; i < this.length + value[[0].length]; i++) {
       if (i < this.length) {
         newArray[i] = this[i];
       } else {
         newArray[i] = value[i - this.length];
       }
     }
+    this.length + value.length;
     return newArray;
   }
 }
 const newMyArr = new MyArray();
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 11; i++) {
   newMyArr.push(i);
 }
