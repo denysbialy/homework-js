@@ -50,30 +50,17 @@ class MyArray {
     delete this[this.length - 1];
     return this.length--;
   }
+ 
 
   reverse() {
-    let temp = {};
-    let temp2 = {};
-
-    for (let i = 0; i < this.length; i++) {
-      temp[i] = this[i];
-      
-    }
-    for (let j = this.length-1, k=0; j >= 0; j--, k++) {
-      temp[j] = this[k];
+    let thisLength = this.length-1
+    for (let i = 0; i < Math.round(thisLength/2); i++) {
+      let temp = this[i];
+      this[i] = this[thisLength-i];
+      this[thisLength - i] = temp;
     }
     return this;
   }
-
-  // reverse() {
-  //   for (let i = 0; i < this.length; i++) {
-  //     let temp = this[i];
-
-  //     this[i] = this[this.length-1];
-  //     this[this.length - 1] = temp;
-  //   }
-  //   return this;
-  // }
 
   concat(...value) {
     let newArray = this;
@@ -91,6 +78,6 @@ class MyArray {
 }
 const newMyArr = new MyArray();
 
-for (let i = 0; i < 11; i++) {
+for (let i = 0; i < 10; i++) {
   newMyArr.push(i);
 }
