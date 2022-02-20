@@ -48,7 +48,9 @@ class MyArray {
       this[i] = this[i + 1];
     }
     delete this[this.length - 1];
-    return this.length--;
+    if (this.length >= 0) {
+      return this.length--;
+    }
   }
 
   reverse() {
@@ -65,17 +67,20 @@ class MyArray {
     // let newArray = this;
     let temp = 0;
     for (let i = 0; i < value.length; i++) {
-      debugger;
+      // debugger;
 
       temp = temp + value[i].length;
-      
+
       for (let j = this.length; j < this.length + temp; j++) {
-        
         this[j] = value[i][j - this.length];
       }
     }
-    // this.length + value.length;
+    this.length + temp;
     return this;
+  }
+
+  static isMyArray(object) {
+    return object instanceof MyArray;
   }
 }
 let q1 = [1, 2, 3, 4];
