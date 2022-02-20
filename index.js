@@ -63,28 +63,14 @@ class MyArray {
     return this;
   }
 
-  concat(...value) {
-    // let newArray = this;
-    let temp = 0;
-    for (let i = 0; i < value.length; i++) {
-      // debugger;
-
-      temp = temp + value[i].length;
-
-      for (let j = this.length; j < this.length + temp; j++) {
-        this[j] = value[i][j - this.length];
-      }
-    }
-    this.length + temp;
-    return this;
-  }
+  
 
   static isMyArray(object) {
     return object instanceof MyArray;
   }
 }
 let q1 = [1, 2, 3, 4];
-let q2 = [5, 6, 7, 8];
+let q2 = [6, 6, 7, 8];
 const newMyArr = new MyArray();
 
 for (let i = 0; i < 10; i++) {
