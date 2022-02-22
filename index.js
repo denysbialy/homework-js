@@ -63,7 +63,26 @@ class MyArray {
     return this;
   }
 
-  
+  concat(value) {
+    let newArray = new MyArray();
+
+    for (let i = 0; i < this.length + value.length; i++) {
+
+      newArray.length++;
+      
+      if (i < this.length) {
+        newArray[i] = this[i];
+      } else {
+        if (typeof value === "string") {
+          newArray[i] = value;
+          return newArray;
+        } else {
+          newArray[i] = value[i - this.length];
+        }
+      }
+    }
+    return newArray;
+  }
 
   static isMyArray(object) {
     return object instanceof MyArray;
