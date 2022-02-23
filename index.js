@@ -1,21 +1,20 @@
-function factorial(num) {
-  if (num === 0) {
-    return 1;
-  } else if (num > 0) {
-    return num * factorial(num - 1);
-  }
-  throw new TypeError("Number is not defined");
-}
+// let counter = 0;
+// function counterClick() {
+//   console.log(++counter);
 
-function toPower(number, exp){
-  if(exp === 1){
-    return number;
-  } else if(exp > 1){
-    return number * toPower(number, exp - 1 )
-  } else if(exp === 0){
-    return 1
-  } else{
-    return 1 / ( number * toPower(number, Math.abs(exp) - 1 ))
+// }
 
-  }
+// const [button] = document.getElementsByTagName("button");
+// button.addEventListener("click", counterClick);
+
+const createMessegeBtn = document.getElementById("createMessage");
+const [elemBody] = document.getElementsByTagName('body');
+createMessegeBtn.addEventListener("click", funcCreateMessage);
+
+function funcCreateMessage() {
+  const addPar = document.createElement("p");
+  addPar.textContent = "lorem";
+  elemBody.append(addPar);
+  addPar.style.color = 'blue'
+  addPar.style.fontSize = '20px'
 }
