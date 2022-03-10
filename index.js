@@ -64,6 +64,7 @@ class MyArray {
   }
 
   concat(value) {
+    let qew
     let newArray = new MyArray();
 
     for (let i = 0; i < this.length + value.length; i++) {
@@ -94,4 +95,20 @@ const newMyArr = new MyArray();
 
 for (let i = 0; i < 10; i++) {
   newMyArr.push(i);
+
+
+const letterEncryption = new Map([
+  ["t", "y"],
+  ["y", "n"],
+  ["n", "t"],
+]);
+
+function funcEncryption(string) {
+  const letters = string.split("");
+  const result = [];
+  for (const letter of letters) {
+    result.push(letterEncryption.get(letter));
+  }
+  return result.join("");
+}
 }
