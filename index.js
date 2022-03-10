@@ -13,7 +13,7 @@ class MyArray {
     if (this.length !== 0) {
       this.length--;
     }
-    let deleteValue = this[this.length];
+    const deleteValue = this[this.length];
     delete this[this.length];
     return deleteValue;
   }
@@ -25,10 +25,11 @@ class MyArray {
   }
 
   map(callback) {
-    let newMap = this;
+    const newMap = new MyArray();
     for (let i = 0; i < this.length; i++) {
       newMap[i] = callback(this[i], i, this);
     }
+    newMap.length = this.length;
     return newMap;
   }
 
@@ -44,17 +45,21 @@ class MyArray {
   }
 
   shift() {
+    const temp = this[0];
     for (let i = 0; i < this.length; i++) {
       this[i] = this[i + 1];
     }
+
     delete this[this.length - 1];
+    this.length--;
+
     if (this.length >= 0) {
-      return this.length--;
+      return temp;
     }
   }
 
   reverse() {
-    let thisLength = this.length - 1;
+    const thisLength = this.length - 1;
     for (let i = 0; i < Math.round(thisLength / 2); i++) {
       let temp = this[i];
       this[i] = this[thisLength - i];
@@ -64,13 +69,11 @@ class MyArray {
   }
 
   concat(value) {
-    let qew
-    let newArray = new MyArray();
+    const newArray = new MyArray();
 
     for (let i = 0; i < this.length + value.length; i++) {
-
       newArray.length++;
-      
+
       if (i < this.length) {
         newArray[i] = this[i];
       } else {
@@ -95,20 +98,4 @@ const newMyArr = new MyArray();
 
 for (let i = 0; i < 10; i++) {
   newMyArr.push(i);
-
-
-const letterEncryption = new Map([
-  ["t", "y"],
-  ["y", "n"],
-  ["n", "t"],
-]);
-
-function funcEncryption(string) {
-  const letters = string.split("");
-  const result = [];
-  for (const letter of letters) {
-    result.push(letterEncryption.get(letter));
-  }
-  return result.join("");
-}
 }
