@@ -19,18 +19,18 @@ class Cat {
     return `${this.name} sleeping`;
   }
   catchingMice() {
-    if (Math.random() > 0.7) {
+    if (Math.random() > successChance + 0.2) {
       return `${this.name} catching mice: ${++this.counterMice}`;
     }
     return "Failed hunt";
   }
   poop() {
-    this.counterMice = 0
-    return 'Cat pooped';
+    this.counterMice = 0;
+    return "Cat pooped";
   }
 }
 
-class strayCat extends Cat {
+class StrayCat extends Cat {
   constructor(name) {
     super(name, "Stray");
     this.miceEaten = 0;
@@ -43,7 +43,7 @@ class strayCat extends Cat {
     }
   }
   catchingMice() {
-    if (Math.random() > 0.5) {
+    if (Math.random() > successChance) {
       return `${this.name} catching mice: ${++this.counterMice}`;
     }
     return "Failed hunt";
@@ -52,3 +52,18 @@ class strayCat extends Cat {
 
 const cat = new strayCat("Barsik", "Pers");
 const cat2 = new Cat("Barsik2", "Persid");
+
+const letterEncryption = new Map([
+  ["t", "y"],
+  ["y", "n"],
+  ["n", "t"],
+]);
+
+function funcEncryption(string) {
+  const letters = string.split("");
+  const result = [];
+  for (const letter of letters) {
+    result.push(letterEncryption.get(letter));
+  }
+  return result.join("");
+}
